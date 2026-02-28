@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        /* Internal CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, darkgrey);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: yellow;
+            padding: 30px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .login-container h1, .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #2980b9;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background: #1f6391;
+        }
+
+        #error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h1>FacePrep Details</h1>
+    <h2>Login</h2>
+    <form onsubmit="return validateLogin()">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p id="error"></p>
+    </form>
+</div>
+
+<script>
+    // Simple JS validation example
+    function validateLogin() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const error = document.getElementById('error');
+
+        if(username === "admin" && password === "1234") {
+            alert("Login Successful!");
+            error.textContent = "";
+            return true; // form can submit if needed
+        } else {
+            error.textContent = "Invalid Username or Password";
+            return false; // prevent form submission
+        }
+    }
+</script>
+</body>
+</html>
